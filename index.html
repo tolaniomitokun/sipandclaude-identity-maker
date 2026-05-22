@@ -107,6 +107,9 @@
   .picker-row.cols-5 { grid-template-columns: repeat(5, 1fr); }
   .hand-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 6px; }
 
+  .picker-row.cols-3 .pick { min-height: 72px; padding: 14px 4px; }
+  .picker-row.cols-3 .pick .pick-label { white-space: nowrap; letter-spacing: 0.02em; }
+
   .pick {
     position: relative; cursor: pointer;
     padding: 10px 6px; border-radius: 6px;
@@ -130,10 +133,10 @@
   .hand-row .pick svg { width: 28px; height: 28px; }
 
   .pick.role-host.active     { border-color: var(--gold); background: #FBF4E1; }
-  .pick.role-vip.active      { border-color: var(--crimson); background: #FBEAEA; }
+  .pick.role-builder.active  { border-color: var(--crimson); background: #FBEAEA; }
   .pick.role-attendee.active { border-color: var(--ember); background: #FDF3EA; }
   .pick.role-host.active .pick-label     { color: #A68433; font-weight: 600; }
-  .pick.role-vip.active .pick-label      { color: var(--crimson); font-weight: 600; }
+  .pick.role-builder.active .pick-label  { color: var(--crimson); font-weight: 600; }
   .pick.role-attendee.active .pick-label { color: var(--ember); font-weight: 600; }
 
   .toggle-row { display: flex; align-items: center; gap: 12px; }
@@ -274,7 +277,7 @@
       <div class="field-label">Your role at the event</div>
       <div class="picker-row cols-3">
         <label class="pick role-host" data-key="role" data-value="Host"><input type="radio" name="role" value="Host"><span class="pick-label">Host</span></label>
-        <label class="pick role-vip" data-key="role" data-value="VIP"><input type="radio" name="role" value="VIP"><span class="pick-label">VIP</span></label>
+        <label class="pick role-builder" data-key="role" data-value="Builder"><input type="radio" name="role" value="Builder"><span class="pick-label">Builder</span></label>
         <label class="pick role-attendee active" data-key="role" data-value="Attendee"><input type="radio" name="role" value="Attendee" checked><span class="pick-label">Attendee</span></label>
       </div>
     </div>
@@ -497,9 +500,9 @@
 (() => {
   // ----- config -----
   const ROLE_META = {
-    Host:     { accent: "#C9A24C", label: "Host" },     // gold, the rare role (Tolani + cohosts)
-    VIP:      { accent: "#A62626", label: "VIP" },      // crimson, special guests / speakers
-    Attendee: { accent: "#D97740", label: "Attendee" }, // ember, most people
+    Host:     { accent: "#C9A24C", label: "Host" },     // gold, Tolani + cohosts
+    Builder:  { accent: "#A62626", label: "Builder" },  // crimson, came to build
+    Attendee: { accent: "#D97740", label: "Attendee" }, // ember, came to vibe / network
   };
   const SKIN_HEX = {
     light: "#E8C4A0", tan: "#CF9B55", medium: "#A87246", brown: "#7A4E2B", deep: "#4D2E18",
@@ -881,10 +884,11 @@
       '<line x1="'+(22 - lineHalfW)+'" y1="32.2" x2="'+(22 + lineHalfW)+'" y2="32.2" stroke="'+accent+'" stroke-width="0.12"/>',
       '<text x="22" y="35" text-anchor="middle" font-family="Instrument Serif, serif" font-size="2" fill="#1A1612">'+nameText+'</text>',
       '<text x="22" y="37.3" text-anchor="middle" font-family="Fraunces, serif" font-size="1.3" fill="#4A403A" font-style="italic">'+tagText+'</text>',
-      '<g transform="translate(22, 40)">',
+      '<g transform="translate(22, 39.6)">',
       '<rect x="-4" y="-1.2" width="8" height="2.4" rx="1.2" fill="'+accent+'"/>',
       '<text x="0" y="0.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="1.1" fill="#FFFDF7" letter-spacing="0.3">'+roleText+'</text>',
       '</g>',
+      '<text x="22" y="42.8" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="1" fill="#8B7E6F" letter-spacing="0.35">SIP &amp; CLAUDE · DALLAS</text>',
       '</svg>',
     ].join("");
   }
