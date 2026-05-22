@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sip & Claude · Dallas — Make your Identity</title>
+<meta name="description" content="Design your Sip & Claude Dallas identity. Pick a hat, a drink, your vibe. Download a shareable card or your transparent pixel character — to post, share, or wear as an avatar." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #F5F0E6;
+    --paper-deep: #EDE5D3;
+    --paper-deeper: #E0D3B5;
+    --ink: #1A1612;
+    --ink-soft: #4A403A;
+    --muted: #8B7E6F;
+    --border: #E5DDC9;
+    --ember: #D97740;
+    --crimson: #A62626;
+    --gold: #C9A24C;
+    --max: 1280px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; background: var(--paper); }
+  body {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "opsz" 14, "SOFT" 30;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.3;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.15 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245, 240, 230, 0.85);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max); margin: 0 auto; padding: 14px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-brand {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: 19px; color: var(--ink); text-decoration: none;
+  }
+  .nav-brand em { color: var(--ember); font-style: italic; }
+  .nav-links { display: flex; gap: 22px; font-size: 14px; font-weight: 500; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; }
+  .nav-links a:hover { color: var(--crimson); }
+
+  .intro {
+    max-width: var(--max); margin: 0 auto;
+    padding: 64px 32px 24px;
+    position: relative; z-index: 2;
+  }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ember); font-weight: 500; margin-bottom: 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .eyebrow::before { content: ""; width: 40px; height: 1px; background: var(--ember); }
+  .intro h1 {
+    font-family: "Instrument Serif", serif; font-weight: 400;
+    font-size: clamp(40px, 6vw, 68px); line-height: 1.05; letter-spacing: -0.02em;
+    margin-bottom: 18px; max-width: 920px;
+  }
+  .intro h1 em { font-style: italic; color: var(--crimson); }
+  .lede { font-size: 18px; color: var(--ink-soft); max-width: 640px; line-height: 1.55; }
+  .lede em { font-style: italic; color: var(--ember); }
+
+  .studio {
+    max-width: var(--max); margin: 0 auto;
+    padding: 32px 32px 100px;
+    display: grid; grid-template-columns: minmax(320px, 460px) 1fr; gap: 56px;
+    align-items: start; position: relative; z-index: 2;
+  }
+
+  .controls { display: flex; flex-direction: column; gap: 26px; }
+  .field-label {
+    display: block; font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin-bottom: 10px;
+  }
+
+  input[type="text"] {
+    width: 100%; padding: 13px 15px; border-radius: 6px;
+    background: #FFFDF7; border: 1.5px solid var(--border);
+    font-family: "Instrument Serif", serif; font-size: 20px;
+    color: var(--ink); outline: none; transition: border-color 0.18s;
+  }
+  input[type="text"]:focus { border-color: var(--ember); }
+  input[type="text"]::placeholder { color: var(--muted); opacity: 0.55; font-style: italic; }
+
+  .picker-row { display: grid; gap: 6px; }
+  .picker-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .picker-row.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .hand-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 6px; }
+
+  .pick {
+    position: relative; cursor: pointer;
+    padding: 10px 6px; border-radius: 6px;
+    background: var(--paper-deep); border: 1.5px solid var(--border);
+    text-align: center; transition: all 0.15s;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 4px;
+    min-height: 64px;
+  }
+  .pick input { position: absolute; opacity: 0; pointer-events: none; }
+  .pick:hover { border-color: var(--ember); }
+  .pick.active { border-color: var(--ink); background: #FFFDF7; box-shadow: 0 2px 10px rgba(26,22,18,0.08); }
+  .pick .pick-label {
+    font-family: "JetBrains Mono", monospace; font-size: 10px;
+    letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft);
+  }
+  .pick svg { width: 34px; height: 34px; display: block; }
+  .pick.swatch { min-height: 44px; padding: 6px; }
+  .pick.swatch .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(26,22,18,0.15); }
+  .hand-row .pick { min-height: 74px; padding: 8px 4px; }
+  .hand-row .pick svg { width: 28px; height: 28px; }
+
+  .pick.role-host.active     { border-color: var(--gold); background: #FBF4E1; }
+  .pick.role-vip.active      { border-color: var(--crimson); background: #FBEAEA; }
+  .pick.role-attendee.active { border-color: var(--ember); background: #FDF3EA; }
+  .pick.role-host.active .pick-label     { color: #A68433; font-weight: 600; }
+  .pick.role-vip.active .pick-label      { color: var(--crimson); font-weight: 600; }
+  .pick.role-attendee.active .pick-label { color: var(--ember); font-weight: 600; }
+
+  .toggle-row { display: flex; align-items: center; gap: 12px; }
+  .toggle-row label { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--ink-soft); cursor: pointer; }
+  .toggle {
+    position: relative; width: 38px; height: 22px; border-radius: 11px;
+    background: var(--paper-deeper); cursor: pointer; transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .toggle::after {
+    content: ""; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px;
+    border-radius: 50%; background: #FFFDF7; transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+  .toggle.on { background: var(--crimson); }
+  .toggle.on::after { transform: translateX(16px); }
+
+  .preview-wrap {
+    position: sticky; top: 80px;
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .card-frame {
+    width: 100%; max-width: 620px; aspect-ratio: 1/1;
+    border-radius: 10px; overflow: hidden;
+    box-shadow:
+      0 1px 2px rgba(26,22,18,0.06),
+      0 8px 24px rgba(26,22,18,0.08),
+      0 24px 60px rgba(26,22,18,0.08);
+    background: var(--paper-deep);
+  }
+  .card-frame > svg { width: 100%; height: 100%; display: block; }
+
+  .downloads { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 620px; }
+  .btn {
+    padding: 14px 18px; border-radius: 6px; border: none; cursor: pointer;
+    font-family: "Fraunces", serif; font-size: 14px; font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: transform 0.15s, background 0.15s;
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--crimson); }
+  .btn-secondary { background: #FFFDF7; color: var(--ink); border: 1.5px solid var(--ink); }
+  .btn-secondary:hover { background: var(--paper-deep); }
+  .btn:active { transform: translateY(1px); }
+  .btn .size {
+    font-family: "JetBrains Mono", monospace; font-size: 10px;
+    opacity: 0.7; letter-spacing: 0.1em; font-weight: 400;
+  }
+
+  .share-note {
+    max-width: 620px; background: var(--paper-deep); border-left: 4px solid var(--crimson);
+    padding: 18px 22px; border-radius: 0 6px 6px 0;
+    font-size: 14px; color: var(--ink-soft); line-height: 1.6;
+  }
+  .share-note strong { color: var(--ink); }
+
+  footer {
+    background: var(--ink); color: var(--paper);
+    padding: 44px 32px; text-align: center; position: relative; z-index: 2;
+  }
+  footer p { font-family: "Fraunces", serif; font-size: 14px; color: var(--paper-deep); opacity: 0.75; margin-bottom: 4px; }
+  footer p a { color: var(--ember); text-decoration: none; }
+  footer p a:hover { text-decoration: underline; }
+
+  .footer-socials {
+    margin-top: 18px;
+    display: flex; justify-content: center; gap: 12px;
+  }
+  .footer-socials a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 50%;
+    background: rgba(245, 240, 230, 0.08);
+    border: 1px solid rgba(245, 240, 230, 0.15);
+    color: var(--paper-deep);
+    text-decoration: none;
+    transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+  }
+  .footer-socials a:hover {
+    color: var(--ink);
+    background: var(--ember);
+    border-color: var(--ember);
+    transform: translateY(-2px);
+  }
+  .footer-socials svg { width: 16px; height: 16px; display: block; }
+
+  @media (max-width: 960px) {
+    .studio { grid-template-columns: 1fr; gap: 40px; }
+    .preview-wrap { position: static; }
+  }
+  @media (max-width: 560px) {
+    .nav-inner { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .intro { padding: 40px 20px 20px; }
+    .studio { padding: 24px 20px 60px; }
+  }
+
+  ::selection { background: var(--ember); color: var(--paper); }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">Sip & <em>Claude</em> · Dallas</a>
+    <div class="nav-links">
+      <a href="https://luma.com/chj2ylf3" target="_blank" rel="noreferrer">Event on Luma</a>
+    </div>
+  </div>
+</nav>
+
+<section class="intro" id="top">
+  <div class="eyebrow">Sip & Claude · Dallas · A community memento</div>
+  <h1>Design your <em>Sip & Claude</em> Identity.</h1>
+  <p class="lede">Pick a hat, a skin tone, <em>your drink</em>, your vibe. Drop your name and Agent persona. Download a shareable card <em>and</em> your pixel character on its own — to post that you were there, or to use as your Discord, Slack, or LinkedIn avatar.</p>
+</section>
+
+<section class="studio">
+
+  <form class="controls" onsubmit="return false;" id="controls">
+
+    <div class="field">
+      <label class="field-label" for="in-persona">Your Agent persona</label>
+      <input type="text" id="in-persona" maxlength="28" value="Cowgirl Agent" placeholder="Cowgirl Agent · Night Owl Agent · Prompt Whisperer Agent">
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="in-name">Your name</label>
+      <input type="text" id="in-name" maxlength="30" value="Tolani Omitokun" placeholder="First and last">
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="in-tagline">Product or location</label>
+      <input type="text" id="in-tagline" maxlength="40" value="Dallas, TX" placeholder="Building CrossBeam · Dallas, TX · Claudetini Co">
+    </div>
+
+    <div class="field">
+      <div class="field-label">Your role at the event</div>
+      <div class="picker-row cols-3">
+        <label class="pick role-host" data-key="role" data-value="Host"><input type="radio" name="role" value="Host"><span class="pick-label">Host</span></label>
+        <label class="pick role-vip" data-key="role" data-value="VIP"><input type="radio" name="role" value="VIP"><span class="pick-label">VIP</span></label>
+        <label class="pick role-attendee active" data-key="role" data-value="Attendee"><input type="radio" name="role" value="Attendee" checked><span class="pick-label">Attendee</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Skin tone</div>
+      <div class="picker-row cols-5">
+        <label class="pick swatch" data-key="skin" data-value="light"  title="Light"><input type="radio" name="skin" value="light"><span class="dot" style="background:#E8C4A0"></span></label>
+        <label class="pick swatch active" data-key="skin" data-value="tan"    title="Tan"><input type="radio" name="skin" value="tan" checked><span class="dot" style="background:#CF9B55"></span></label>
+        <label class="pick swatch" data-key="skin" data-value="medium" title="Medium"><input type="radio" name="skin" value="medium"><span class="dot" style="background:#A87246"></span></label>
+        <label class="pick swatch" data-key="skin" data-value="brown"  title="Brown"><input type="radio" name="skin" value="brown"><span class="dot" style="background:#7A4E2B"></span></label>
+        <label class="pick swatch" data-key="skin" data-value="deep"   title="Deep"><input type="radio" name="skin" value="deep"><span class="dot" style="background:#4D2E18"></span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Headwear</div>
+      <div class="picker-row cols-5">
+        <label class="pick active" data-key="hat" data-value="cowboy">
+          <input type="radio" name="hat" value="cowboy" checked>
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="16" rx="10" ry="1.5" fill="#5C3A21"/><path d="M 6 15 Q 4 6 12 5 Q 20 6 18 15 Z" fill="#5C3A21"/><rect x="6" y="13" width="12" height="1" fill="#D4A843"/></svg>
+          <span class="pick-label">Cowboy</span>
+        </label>
+        <label class="pick" data-key="hat" data-value="beanie">
+          <input type="radio" name="hat" value="beanie">
+          <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="8" rx="2" fill="#4A8A5C"/><rect x="4" y="17" width="16" height="1.5" fill="#3A6A47"/><circle cx="12" cy="7" r="2" fill="#C9A24C"/></svg>
+          <span class="pick-label">Beanie</span>
+        </label>
+        <label class="pick" data-key="hat" data-value="headphones">
+          <input type="radio" name="hat" value="headphones">
+          <svg viewBox="0 0 24 24"><path d="M 4 13 Q 12 5 20 13" stroke="#1A1612" stroke-width="1.8" fill="none"/><rect x="2" y="12" width="4" height="6" rx="1" fill="#1A1612"/><rect x="18" y="12" width="4" height="6" rx="1" fill="#1A1612"/><rect x="3" y="13.5" width="2" height="3" fill="#D97740"/><rect x="19" y="13.5" width="2" height="3" fill="#D97740"/></svg>
+          <span class="pick-label">Headphones</span>
+        </label>
+        <label class="pick" data-key="hat" data-value="cap">
+          <input type="radio" name="hat" value="cap">
+          <svg viewBox="0 0 24 24"><path d="M 5 13 Q 5 6 12 6 Q 19 6 19 13 Z" fill="#D97740"/><rect x="2" y="13" width="18" height="2" fill="#B8601E"/><circle cx="12" cy="11" r="1.5" fill="#F5F0E6"/></svg>
+          <span class="pick-label">Cap</span>
+        </label>
+        <label class="pick" data-key="hat" data-value="none">
+          <input type="radio" name="hat" value="none">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="#8B7E6F" stroke-width="1" stroke-dasharray="2 2"/><line x1="6" y1="6" x2="18" y2="18" stroke="#8B7E6F" stroke-width="1"/></svg>
+          <span class="pick-label">None</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">While you Claude · right hand</div>
+      <div class="hand-row">
+
+        <label class="pick active" data-key="hand" data-value="claudetini">
+          <input type="radio" name="hand" value="claudetini" checked>
+          <svg viewBox="0 0 24 32"><g transform="translate(12,3)" fill="#D97740"><ellipse rx="1.2" ry="4" cy="-3"/><ellipse rx="1.2" ry="4" cy="-3" transform="rotate(60)"/><ellipse rx="1.2" ry="4" cy="-3" transform="rotate(120)"/><ellipse rx="1.2" ry="4" cy="-3" transform="rotate(180)"/><ellipse rx="1.2" ry="4" cy="-3" transform="rotate(240)"/><ellipse rx="1.2" ry="4" cy="-3" transform="rotate(300)"/><circle r="1.2"/></g><line x1="12" y1="6" x2="12" y2="12" stroke="#D97740" stroke-width="1.3"/><polygon points="4,12 12,22 20,12" fill="#FFFDF7" stroke="#A62626" stroke-width="1.2" stroke-linejoin="round"/><polygon points="6,13.3 12,22 18,13.3" fill="#D97740" opacity="0.4"/><line x1="12" y1="22" x2="12" y2="29" stroke="#A62626" stroke-width="1.2"/><ellipse cx="12" cy="29.5" rx="6" ry="1.2" stroke="#A62626" stroke-width="1" fill="none"/></svg>
+          <span class="pick-label">Claudetini</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="opus">
+          <input type="radio" name="hand" value="opus">
+          <svg viewBox="0 0 24 32"><g transform="translate(12,4)" fill="#D97740"><ellipse rx="0.6" ry="2" cy="-1.2"/><ellipse rx="0.6" ry="2" cy="-1.2" transform="rotate(60)"/><ellipse rx="0.6" ry="2" cy="-1.2" transform="rotate(120)"/></g><rect x="4" y="10" width="16" height="18" rx="1" fill="#FFFDF7" stroke="#5C3A21" stroke-width="1.1"/><rect x="4.5" y="14" width="15" height="13" fill="#B8601E" opacity="0.8"/><rect x="8" y="15.5" width="5" height="5" fill="#F5EFE2" stroke="#A5A5A5" stroke-width="0.3" opacity="0.9"/><rect x="8" y="15.5" width="1" height="5" fill="#FFFDF7" opacity="0.9"/><rect x="4" y="10" width="16" height="1.3" fill="#5C3A21" opacity="0.4"/></svg>
+          <span class="pick-label">The Opus</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="sonnet">
+          <input type="radio" name="hand" value="sonnet">
+          <svg viewBox="0 0 24 32"><path d="M 2 8 Q 2 18 12 18 Q 22 18 22 8 Z" fill="#FFFDF7" stroke="#A62626" stroke-width="1.1" stroke-linejoin="round"/><path d="M 4 9 Q 4 17 12 17 Q 20 17 20 9 Z" fill="#D97740" opacity="0.5"/><g transform="translate(12,12)" fill="#F2C94C"><ellipse rx="0.7" ry="2.3"/><ellipse rx="0.7" ry="2.3" transform="rotate(60)"/><ellipse rx="0.7" ry="2.3" transform="rotate(120)"/><circle r="1"/></g><line x1="12" y1="18" x2="12" y2="27" stroke="#A62626" stroke-width="1.2" stroke-linecap="round"/><ellipse cx="12" cy="27.5" rx="5" ry="1.2" stroke="#A62626" stroke-width="1" fill="none"/></svg>
+          <span class="pick-label">The Sonnet</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="haiku">
+          <input type="radio" name="hand" value="haiku">
+          <svg viewBox="0 0 24 32"><g transform="translate(12,5)" fill="#D97740"><ellipse rx="0.5" ry="2" cy="-1"/><ellipse rx="0.5" ry="2" cy="-1" transform="rotate(60)"/><ellipse rx="0.5" ry="2" cy="-1" transform="rotate(120)"/></g><rect x="7" y="11" width="10" height="13" rx="0.8" fill="#FFFDF7" stroke="#5C3A21" stroke-width="1"/><rect x="7.5" y="14" width="9" height="9" fill="#E8D5B5" opacity="0.65"/><rect x="7" y="11" width="10" height="1.2" fill="#5C3A21" opacity="0.35"/><rect x="5.5" y="24" width="13" height="1.5" rx="0.3" fill="#5C3A21" opacity="0.4"/></svg>
+          <span class="pick-label">The Haiku</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="claudeccino">
+          <input type="radio" name="hand" value="claudeccino">
+          <svg viewBox="0 0 24 32"><path d="M 4 8 Q 4 5 6 6" stroke="#8B7E6F" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M 12 6 Q 12 3 14 4" stroke="#8B7E6F" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M 20 8 Q 20 5 18 6" stroke="#8B7E6F" stroke-width="0.8" fill="none" opacity="0.5"/><ellipse cx="12" cy="11" rx="7.5" ry="1.8" fill="#5C3A21"/><g transform="translate(12,11)" fill="#E8D5B5"><ellipse rx="0.45" ry="1.8"/><ellipse rx="0.45" ry="1.8" transform="rotate(60)"/><ellipse rx="0.45" ry="1.8" transform="rotate(120)"/></g><path d="M 4 11 L 5 24 Q 5 26 7 26 L 17 26 Q 19 26 19 24 L 20 11 Z" fill="#FFFDF7" stroke="#7A4E2B" stroke-width="0.7"/><path d="M 20 15 Q 23 16 23 19 Q 23 22 20 22" stroke="#7A4E2B" stroke-width="0.8" fill="none"/></svg>
+          <span class="pick-label">Claudeccino</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="water">
+          <input type="radio" name="hand" value="water">
+          <svg viewBox="0 0 24 32"><rect x="8" y="5" width="8" height="3" rx="1" fill="#A87D3A"/><rect x="7" y="8" width="10" height="19" rx="1.5" fill="#E8F4F7" stroke="#7A9AA8"/><rect x="7" y="14" width="10" height="13" rx="1" fill="#AED3DC" opacity="0.6"/><rect x="8" y="14" width="8" height="1.2" fill="#7A9AA8"/><g transform="translate(12,20.5)" fill="#D97740"><ellipse rx="0.4" ry="1.5"/><ellipse rx="0.4" ry="1.5" transform="rotate(60)"/><ellipse rx="0.4" ry="1.5" transform="rotate(120)"/></g></svg>
+          <span class="pick-label">Water</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="claudeade">
+          <input type="radio" name="hand" value="claudeade">
+          <svg viewBox="0 0 24 32"><line x1="17" y1="3" x2="13" y2="12" stroke="#D97740" stroke-width="1.5" stroke-linecap="round"/><g transform="translate(8,8)" fill="#F2C94C"><ellipse rx="0.7" ry="2.5"/><ellipse rx="0.7" ry="2.5" transform="rotate(60)"/><ellipse rx="0.7" ry="2.5" transform="rotate(120)"/><circle r="1"/></g><path d="M 5 13 L 7 27 Q 7 28 8 28 L 16 28 Q 17 28 17 27 L 19 13 Z" fill="#FFFDF7" stroke="#C9A24C"/><path d="M 6 14 L 7.5 26.5 Q 7.5 27 8 27 L 16 27 Q 16.5 27 16.5 26.5 L 18 14 Z" fill="#F2C94C" opacity="0.5"/></svg>
+          <span class="pick-label">Claudeade</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="matcha">
+          <input type="radio" name="hand" value="matcha">
+          <svg viewBox="0 0 24 32"><path d="M 8 8 Q 8 5 10 6" stroke="#8B7E6F" stroke-width="0.8" fill="none" opacity="0.5"/><path d="M 15 7 Q 15 4 17 5" stroke="#8B7E6F" stroke-width="0.8" fill="none" opacity="0.5"/><ellipse cx="12" cy="11" rx="7.5" ry="1.5" fill="#7BA05B"/><g transform="translate(12,11)" fill="#C5D8A6"><ellipse rx="0.4" ry="1.3"/><ellipse rx="0.4" ry="1.3" transform="rotate(60)"/><ellipse rx="0.4" ry="1.3" transform="rotate(120)"/></g><path d="M 5 11 Q 5 26 12 26 Q 19 26 19 11 Z" fill="#FFFDF7" stroke="#7A4E2B"/></svg>
+          <span class="pick-label">Matcha</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="laptop2">
+          <input type="radio" name="hand" value="laptop2">
+          <svg viewBox="0 0 24 32"><rect x="3" y="10" width="18" height="12" rx="1" fill="#1A1612"/><rect x="4" y="11" width="16" height="10" fill="#2A1F1A"/><g transform="translate(12,16)" fill="#D97740"><ellipse rx="0.45" ry="2.4"/><ellipse rx="0.45" ry="2.4" transform="rotate(60)"/><ellipse rx="0.45" ry="2.4" transform="rotate(120)"/><circle r="0.7"/></g><rect x="2" y="22" width="20" height="1.6" rx="0.4" fill="#8B5A3C"/></svg>
+          <span class="pick-label">Laptop 2</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="notebook">
+          <input type="radio" name="hand" value="notebook">
+          <svg viewBox="0 0 24 32"><rect x="4" y="5" width="14" height="20" rx="0.5" fill="#C9A24C"/><rect x="4" y="5" width="1.3" height="20" fill="#7A5F1E"/><rect x="6" y="9" width="10" height="0.7" fill="#F5F0E6"/><rect x="6" y="11.5" width="10" height="0.7" fill="#F5F0E6"/><rect x="6" y="14" width="7" height="0.7" fill="#F5F0E6"/><g transform="translate(16,23) rotate(-20)"><rect x="-0.5" y="-4" width="1" height="8" fill="#A62626"/><polygon points="-0.5,4 0.5,4 0,5" fill="#1A1612"/></g></svg>
+          <span class="pick-label">Notebook</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="mic">
+          <input type="radio" name="hand" value="mic">
+          <svg viewBox="0 0 24 32"><rect x="8" y="3" width="8" height="12" rx="3.5" fill="#1A1612"/><rect x="9" y="4" width="6" height="10" rx="2.8" fill="#4A403A"/><g stroke="#C9A24C" stroke-width="0.5"><line x1="9.5" y1="6" x2="14.5" y2="6"/><line x1="9.5" y1="8" x2="14.5" y2="8"/><line x1="9.5" y1="10" x2="14.5" y2="10"/><line x1="9.5" y1="12" x2="14.5" y2="12"/></g><rect x="11" y="15" width="2" height="8" fill="#1A1612"/><rect x="6" y="22" width="12" height="1.6" rx="0.4" fill="#1A1612"/></svg>
+          <span class="pick-label">Mic</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="phone">
+          <input type="radio" name="hand" value="phone">
+          <svg viewBox="0 0 24 32"><rect x="6" y="3" width="12" height="22" rx="2" fill="#1A1612"/><rect x="7.5" y="6" width="9" height="15" rx="0.8" fill="#4A403A"/><g transform="translate(12,13.5)" fill="#D97740"><ellipse rx="0.45" ry="3"/><ellipse rx="0.45" ry="3" transform="rotate(60)"/><ellipse rx="0.45" ry="3" transform="rotate(120)"/><circle r="0.9"/></g><circle cx="12" cy="23" r="0.9" fill="#4A403A"/></svg>
+          <span class="pick-label">Phone</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="plant">
+          <input type="radio" name="hand" value="plant">
+          <svg viewBox="0 0 24 32"><ellipse cx="8" cy="10" rx="2" ry="3.5" fill="#4A8A5C" transform="rotate(-20 8 10)"/><ellipse cx="14" cy="8.5" rx="1.8" ry="3.3" fill="#6BA17A" transform="rotate(15 14 8.5)"/><ellipse cx="17" cy="11" rx="2" ry="3.5" fill="#4A8A5C" transform="rotate(30 17 11)"/><ellipse cx="12" cy="7" rx="1.7" ry="3" fill="#6BA17A"/><rect x="11.5" y="11" width="1" height="4" fill="#3A6A47"/><polygon points="7,15 17,15 15.5,26 8.5,26" fill="#A62626" stroke="#7A1C1C"/><rect x="7" y="14" width="10" height="1.5" fill="#C93838"/></svg>
+          <span class="pick-label">Plant</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="duck">
+          <input type="radio" name="hand" value="duck">
+          <svg viewBox="0 0 24 32"><ellipse cx="12" cy="20" rx="6" ry="4" fill="#F2C94C"/><circle cx="16" cy="15" r="3" fill="#F2C94C"/><polygon points="18.5,15.5 21,16 18.5,16.5" fill="#D97740"/><circle cx="16.5" cy="14.3" r="0.6" fill="#1A1612"/><ellipse cx="10.5" cy="19.7" rx="2.3" ry="1.2" fill="#E0AC2F"/></svg>
+          <span class="pick-label">Rubber duck</span>
+        </label>
+
+        <label class="pick" data-key="hand" data-value="empty">
+          <input type="radio" name="hand" value="empty">
+          <svg viewBox="0 0 24 32"><g stroke="#8B7E6F" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M 12 8 L 12 20"/><path d="M 8 10 L 8 20"/><path d="M 16 10 L 16 20"/><path d="M 6 13 L 6 20"/><path d="M 18 13 L 18 20"/><path d="M 5 20 Q 5 24 8 24 L 16 24 Q 19 24 19 20"/></g></svg>
+          <span class="pick-label">Empty</span>
+        </label>
+
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Facial features</div>
+      <div class="hand-row">
+        <label class="pick" data-key="face" data-value="none">
+          <input type="radio" name="face" value="none">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#8B7E6F" stroke-width="1"/><circle cx="9" cy="10.5" r="1" fill="#1A1612"/><circle cx="15" cy="10.5" r="1" fill="#1A1612"/></svg>
+          <span class="pick-label">None</span>
+        </label>
+        <label class="pick active" data-key="face" data-value="lashes">
+          <input type="radio" name="face" value="lashes" checked>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#8B7E6F" stroke-width="1"/><rect x="6.8" y="9" width="4.2" height="0.7" fill="#1A1612"/><rect x="13" y="9" width="4.2" height="0.7" fill="#1A1612"/><rect x="7.5" y="7.3" width="0.5" height="1.7" fill="#1A1612"/><rect x="8.7" y="7.1" width="0.5" height="1.9" fill="#1A1612"/><rect x="10" y="7.3" width="0.5" height="1.7" fill="#1A1612"/><rect x="13.5" y="7.3" width="0.5" height="1.7" fill="#1A1612"/><rect x="14.8" y="7.1" width="0.5" height="1.9" fill="#1A1612"/><rect x="16" y="7.3" width="0.5" height="1.7" fill="#1A1612"/><circle cx="9" cy="10.5" r="0.7" fill="#1A1612"/><circle cx="15" cy="10.5" r="0.7" fill="#1A1612"/></svg>
+          <span class="pick-label">Lashes</span>
+        </label>
+        <label class="pick" data-key="face" data-value="glasses_black">
+          <input type="radio" name="face" value="glasses_black">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#8B7E6F" stroke-width="1"/><rect x="5.5" y="9.5" width="5.5" height="3.5" rx="0.4" fill="none" stroke="#1A1612" stroke-width="1.3"/><rect x="13" y="9.5" width="5.5" height="3.5" rx="0.4" fill="none" stroke="#1A1612" stroke-width="1.3"/><line x1="11" y1="11" x2="13" y2="11" stroke="#1A1612" stroke-width="1.3"/></svg>
+          <span class="pick-label">Black</span>
+        </label>
+        <label class="pick" data-key="face" data-value="glasses_green">
+          <input type="radio" name="face" value="glasses_green">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#8B7E6F" stroke-width="1"/><rect x="5.5" y="9.5" width="5.5" height="3.5" rx="0.4" fill="none" stroke="#4A8A5C" stroke-width="1.3"/><rect x="13" y="9.5" width="5.5" height="3.5" rx="0.4" fill="none" stroke="#4A8A5C" stroke-width="1.3"/><line x1="11" y1="11" x2="13" y2="11" stroke="#4A8A5C" stroke-width="1.3"/></svg>
+          <span class="pick-label">Green</span>
+        </label>
+        <label class="pick" data-key="face" data-value="glasses_orange">
+          <input type="radio" name="face" value="glasses_orange">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#8B7E6F" stroke-width="1"/><rect x="5.5" y="9.5" width="5.5" height="3.5" rx="0.4" fill="none" stroke="#D97740" stroke-width="1.3"/><rect x="13" y="9.5" width="5.5" height="3.5" rx="0.4" fill="none" stroke="#D97740" stroke-width="1.3"/><line x1="11" y1="11" x2="13" y2="11" stroke="#D97740" stroke-width="1.3"/></svg>
+          <span class="pick-label">Orange</span>
+        </label>
+      </div>
+    </div>
+
+  </form>
+
+  <div class="preview-wrap">
+    <div class="card-frame" id="card-frame"></div>
+    <div class="downloads">
+      <button class="btn btn-primary" id="btn-card" type="button">
+        <span>Download card</span>
+        <span class="size">1080 × 1080 PNG</span>
+      </button>
+      <button class="btn btn-secondary" id="btn-char" type="button">
+        <span>Download pixel only</span>
+        <span class="size">Transparent PNG</span>
+      </button>
+    </div>
+    <div class="share-note">
+      <strong>Card:</strong> for LinkedIn, X, Instagram, Discord posts.
+      <strong>Pixel only:</strong> for Discord avatar, Slack emoji, site favicon, sticker.
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <p>A community memento for Sip & Claude · Dallas</p>
+  <p>Made by Tolani Omitokun · Dallas · 2026 · Discord @tolatokuns · <a href="https://luma.com/chj2ylf3" target="_blank" rel="noreferrer">Event on Luma</a></p>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/tolaniomitokunproductmanager/" target="_blank" rel="noopener noreferrer" aria-label="Tolani on LinkedIn" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.23 0z"/>
+      </svg>
+    </a>
+    <a href="https://x.com/TolaniAI" target="_blank" rel="noopener noreferrer" aria-label="Tolani on X" title="X">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z"/>
+      </svg>
+    </a>
+    <a href="https://github.com/tolaniomitokun" target="_blank" rel="noopener noreferrer" aria-label="Tolani on GitHub" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // ----- config -----
+  const ROLE_META = {
+    Host:     { accent: "#C9A24C", label: "Host" },     // gold, the rare role (Tolani + cohosts)
+    VIP:      { accent: "#A62626", label: "VIP" },      // crimson, special guests / speakers
+    Attendee: { accent: "#D97740", label: "Attendee" }, // ember, most people
+  };
+  const SKIN_HEX = {
+    light: "#E8C4A0", tan: "#CF9B55", medium: "#A87246", brown: "#7A4E2B", deep: "#4D2E18",
+  };
+
+  const state = {
+    persona: "Cowgirl Agent",
+    name: "Tolani Omitokun",
+    tagline: "Dallas, TX",
+    role: "Attendee",
+    skin: "tan",
+    hat: "cowboy",
+    hand: "claudetini",
+    face: "lashes",
+  };
+
+  // ----- SVG fragment builders (strings are parsed via DOMParser, never injected as HTML) -----
+
+  // 6-point Claude-style asterisk
+  function asterisk(cx, cy, size, color) {
+    const rx = size * 0.18, ry = size * 0.55, dy = -size * 0.75;
+    let p = '<g transform="translate(' + cx + ' ' + cy + ')" fill="' + color + '">';
+    for (let i = 0; i < 6; i++) {
+      p += '<ellipse cx="0" cy="' + dy + '" rx="' + rx + '" ry="' + ry + '" transform="rotate(' + (i*60) + ')"/>';
+    }
+    p += '<circle r="' + (size*0.26) + '"/></g>';
+    return p;
+  }
+
+  function hatCowboy() {
+    return [
+      '<rect x="17" y="5" width="1" height="1" fill="#A8842B"/><rect x="17" y="6" width="1" height="1" fill="#8B6914"/><rect x="17" y="7" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="18" y="4" width="1" height="1" fill="#B89430"/><rect x="18" y="5" width="1" height="1" fill="#8B6914"/><rect x="18" y="6" width="1" height="1" fill="#8B6914"/><rect x="18" y="7" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="19" y="3" width="1" height="1" fill="#B89430"/><rect x="19" y="4" width="1" height="1" fill="#8B6914"/><rect x="19" y="5" width="1" height="1" fill="#8B6914"/><rect x="19" y="6" width="1" height="1" fill="#8B6914"/><rect x="19" y="7" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="20" y="3.5" width="1" height="1" fill="#A8842B"/><rect x="20" y="4.5" width="1" height="1" fill="#8B6914"/><rect x="20" y="5.5" width="1" height="1" fill="#8B6914"/><rect x="20" y="6.5" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="21" y="4" width="1" height="1" fill="#A8842B"/><rect x="21" y="5" width="1" height="1" fill="#8B6914"/><rect x="21" y="6" width="1" height="1" fill="#8B6914"/><rect x="21" y="7" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="22" y="4.5" width="1" height="1" fill="#A8842B"/><rect x="22" y="5.5" width="1" height="1" fill="#8B6914"/><rect x="22" y="6.5" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="23" y="4" width="1" height="1" fill="#A8842B"/><rect x="23" y="5" width="1" height="1" fill="#8B6914"/><rect x="23" y="6" width="1" height="1" fill="#8B6914"/><rect x="23" y="7" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="24" y="3.5" width="1" height="1" fill="#A8842B"/><rect x="24" y="4.5" width="1" height="1" fill="#8B6914"/><rect x="24" y="5.5" width="1" height="1" fill="#8B6914"/><rect x="24" y="6.5" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="25" y="3" width="1" height="1" fill="#B89430"/><rect x="25" y="4" width="1" height="1" fill="#8B6914"/><rect x="25" y="5" width="1" height="1" fill="#8B6914"/><rect x="25" y="6" width="1" height="1" fill="#8B6914"/><rect x="25" y="7" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="26" y="4" width="1" height="1" fill="#B89430"/><rect x="26" y="5" width="1" height="1" fill="#8B6914"/><rect x="26" y="6" width="1" height="1" fill="#8B6914"/><rect x="26" y="7" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="27" y="5" width="1" height="1" fill="#A8842B"/><rect x="27" y="6" width="1" height="1" fill="#8B6914"/><rect x="27" y="7" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="17" y="7.8" width="11" height="0.4" fill="#D4A843"/>',
+      '<rect x="12" y="8" width="1" height="1" fill="#7A5C14"/><rect x="13" y="7.5" width="1" height="1" fill="#8B6914"/><rect x="14" y="7.5" width="1" height="1" fill="#8B6914"/><rect x="15" y="8" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="16" y="8" width="1" height="1" fill="#8B6914"/><rect x="17" y="8" width="1" height="1" fill="#8B6914"/><rect x="18" y="8" width="1" height="1" fill="#8B6914"/><rect x="19" y="8" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="20" y="8" width="1" height="1" fill="#8B6914"/><rect x="21" y="8" width="1" height="1" fill="#8B6914"/><rect x="22" y="8" width="1" height="1" fill="#8B6914"/><rect x="23" y="8" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="24" y="8" width="1" height="1" fill="#8B6914"/><rect x="25" y="8" width="1" height="1" fill="#8B6914"/><rect x="26" y="8" width="1" height="1" fill="#8B6914"/><rect x="27" y="8" width="1" height="1" fill="#8B6914"/>',
+      '<rect x="28" y="8" width="1" height="1" fill="#8B6914"/><rect x="29" y="8" width="1" height="1" fill="#8B6914"/><rect x="30" y="7.5" width="1" height="1" fill="#8B6914"/><rect x="31" y="7.5" width="1" height="1" fill="#8B6914"/><rect x="32" y="8" width="1" height="1" fill="#7A5C14"/>',
+    ].join("");
+  }
+
+  function hatBeanie() {
+    return [
+      '<rect x="17" y="7" width="10" height="2" fill="#3A6A47"/>',
+      '<rect x="17" y="9" width="10" height="0.4" fill="#2C5036"/>',
+      '<rect x="18.5" y="5.5" width="7" height="1.5" fill="#4A8A5C"/>',
+      '<rect x="19.5" y="4.5" width="5" height="1" fill="#4A8A5C"/>',
+      '<circle cx="22" cy="3.8" r="0.9" fill="#C9A24C"/>',
+    ].join("");
+  }
+
+  function hatHeadphones() {
+    return [
+      '<path d="M 16.2 8 Q 22 5 27.8 8" stroke="#1A1612" stroke-width="0.55" fill="none"/>',
+      '<rect x="15.3" y="9.5" width="1.9" height="2.6" rx="0.4" fill="#1A1612"/>',
+      '<rect x="26.8" y="9.5" width="1.9" height="2.6" rx="0.4" fill="#1A1612"/>',
+      '<rect x="15.8" y="10" width="0.9" height="1.6" fill="#D97740"/>',
+      '<rect x="27.3" y="10" width="0.9" height="1.6" fill="#D97740"/>',
+    ].join("");
+  }
+
+  function hatCap() {
+    return [
+      '<rect x="17" y="7" width="10" height="2" fill="#D97740"/>',
+      '<rect x="18" y="6" width="8" height="1" fill="#D97740"/>',
+      '<rect x="19" y="5.3" width="6" height="0.8" fill="#D97740"/>',
+      '<rect x="15" y="9" width="14" height="0.5" fill="#B8601E"/>',
+      asterisk(22, 7.3, 0.7, "#F5F0E6"),
+    ].join("");
+  }
+
+  function hatSVG() {
+    if (state.hat === "cowboy") return hatCowboy();
+    if (state.hat === "beanie") return hatBeanie();
+    if (state.hat === "headphones") return hatHeadphones();
+    if (state.hat === "cap") return hatCap();
+    return "";
+  }
+
+  function lashesSVG() {
+    return [
+      '<rect x="18.4" y="11.65" width="2.1" height="0.3" fill="#2a1a07"/>',
+      '<rect x="18.5" y="11.75" width="0.25" height="0.35" fill="#2a1a07" transform="rotate(-18 18.6 11.9)"/>',
+      '<rect x="18.95" y="11.25" width="0.22" height="0.55" fill="#2a1a07"/>',
+      '<rect x="19.4" y="11.2" width="0.22" height="0.6" fill="#2a1a07"/>',
+      '<rect x="19.9" y="11.25" width="0.22" height="0.55" fill="#2a1a07"/>',
+      '<rect x="20.3" y="11.75" width="0.25" height="0.35" fill="#2a1a07" transform="rotate(18 20.45 11.9)"/>',
+      '<rect x="23.4" y="11.65" width="2.1" height="0.3" fill="#2a1a07"/>',
+      '<rect x="23.5" y="11.75" width="0.25" height="0.35" fill="#2a1a07" transform="rotate(-18 23.6 11.9)"/>',
+      '<rect x="23.95" y="11.25" width="0.22" height="0.55" fill="#2a1a07"/>',
+      '<rect x="24.4" y="11.2" width="0.22" height="0.6" fill="#2a1a07"/>',
+      '<rect x="24.9" y="11.25" width="0.22" height="0.55" fill="#2a1a07"/>',
+      '<rect x="25.3" y="11.75" width="0.25" height="0.35" fill="#2a1a07" transform="rotate(18 25.45 11.9)"/>',
+    ].join("");
+  }
+
+  const GLASSES_HEX = {
+    black: "#2a1a07",
+    green: "#4A8A5C",
+    orange: "#D97740",
+  };
+
+  function glassesSVG(color) {
+    const c = color || "#2a1a07";
+    // frames centered on the eye row (eyes at y=12..13, center y=12.5)
+    return [
+      '<rect x="18.3" y="11.85" width="2.1" height="1.15" fill="none" stroke="'+c+'" stroke-width="0.3"/>',
+      '<rect x="23.6" y="11.85" width="2.1" height="1.15" fill="none" stroke="'+c+'" stroke-width="0.3"/>',
+      '<line x1="20.4" y1="12.42" x2="23.6" y2="12.42" stroke="'+c+'" stroke-width="0.3"/>',
+    ].join("");
+  }
+
+  function faceSVG() {
+    if (state.face === "lashes") return lashesSVG();
+    if (state.face && state.face.startsWith("glasses_")) {
+      const variant = state.face.slice("glasses_".length);
+      return glassesSVG(GLASSES_HEX[variant] || "#2a1a07");
+    }
+    return "";
+  }
+
+  function headBodySVG() {
+    const c = SKIN_HEX[state.skin];
+    return [
+      '<rect x="18" y="9" width="1" height="1" fill="'+c+'"/><rect x="19" y="9" width="1" height="1" fill="'+c+'"/>',
+      '<rect x="25" y="9" width="1" height="1" fill="'+c+'"/><rect x="26" y="9" width="1" height="1" fill="'+c+'"/>',
+      '<rect x="17" y="10" width="10" height="1" fill="'+c+'"/>',
+      '<rect x="17" y="11" width="10" height="1" fill="'+c+'"/>',
+      '<rect x="17" y="12" width="10" height="1" fill="'+c+'"/>',
+      '<rect x="19" y="12" width="1" height="1" fill="#2a1a07"/>',
+      '<rect x="24" y="12" width="1" height="1" fill="#2a1a07"/>',
+      '<rect x="17" y="13" width="10" height="1" fill="'+c+'"/>',
+      '<rect x="20" y="14" width="4" height="1" fill="'+c+'"/>',
+      '<rect x="17" y="15" width="10" height="1" fill="'+c+'"/>',
+      '<rect x="16" y="16" width="2" height="1" fill="'+c+'"/><rect x="19" y="16" width="6" height="1" fill="'+c+'"/><rect x="26" y="16" width="2" height="1" fill="'+c+'"/>',
+      '<rect x="14" y="17" width="2" height="1" fill="'+c+'"/><rect x="19" y="17" width="6" height="1" fill="'+c+'"/><rect x="28" y="17" width="2" height="1" fill="'+c+'"/>',
+      '<rect x="12" y="18" width="2" height="1" fill="'+c+'"/><rect x="19" y="18" width="6" height="1" fill="'+c+'"/><rect x="30" y="18" width="2" height="1" fill="'+c+'"/>',
+      '<rect x="19" y="19" width="6" height="1" fill="'+c+'"/>',
+      '<rect x="19" y="20" width="2" height="1" fill="'+c+'"/><rect x="23" y="20" width="2" height="1" fill="'+c+'"/>',
+      '<rect x="19" y="21" width="2" height="1" fill="'+c+'"/><rect x="23" y="21" width="2" height="1" fill="'+c+'"/>',
+      '<rect x="19" y="22" width="2" height="1" fill="'+c+'"/><rect x="23" y="22" width="2" height="1" fill="'+c+'"/>',
+      '<rect x="18" y="23" width="3" height="1" fill="'+c+'"/>',
+      '<rect x="23" y="23" width="3" height="1" fill="'+c+'"/>',
+      faceSVG(),
+    ].join("");
+  }
+
+  function leftHandLaptop() {
+    return [
+      '<rect x="4" y="16.5" width="8" height="0.6" fill="#A87D3A"/>',
+      '<rect x="4" y="17.1" width="8" height="3" fill="#2a1a07"/>',
+      '<rect x="4" y="17.1" width="0.3" height="3" fill="#A87D3A"/>',
+      '<rect x="11.7" y="17.1" width="0.3" height="3" fill="#A87D3A"/>',
+      '<rect x="4" y="19.8" width="8" height="0.3" fill="#A87D3A"/>',
+      asterisk(8, 18.5, 0.9, "#D97729"),
+      '<rect x="3.5" y="20.1" width="9" height="0.7" fill="#CF9B55"/>',
+      '<rect x="3.2" y="20.8" width="9.6" height="0.5" fill="#A87D3A"/>',
+    ].join("");
+  }
+
+  function handClaudetini() {
+    return [
+      asterisk(35, 15, 1.1, "#D97729"),
+      '<line x1="35" y1="15.3" x2="35" y2="18.2" stroke="#D97729" stroke-width="0.2" stroke-linecap="round"/>',
+      '<polygon points="32,17 34,19.5 36,17" stroke="#A62626" stroke-width="0.22" fill="#FFFDF7" stroke-linejoin="round"/>',
+      '<line x1="32.7" y1="17.6" x2="35.3" y2="17.6" stroke="#A62626" stroke-width="0.12" opacity="0.4"/>',
+      '<polygon points="32.7,17.6 34,19.5 35.3,17.6" fill="#D97729" opacity="0.35"/>',
+      '<line x1="34" y1="19.5" x2="34" y2="22.3" stroke="#A62626" stroke-width="0.22" stroke-linecap="round"/>',
+      '<ellipse cx="34" cy="22.5" rx="1.4" ry="0.3" stroke="#A62626" stroke-width="0.2" fill="none"/>',
+    ].join("");
+  }
+
+  // The Opus — whiskey rocks glass with ice (the heavyweight)
+  function handOpus() {
+    return [
+      '<rect x="32" y="18.4" width="4" height="4.2" rx="0.25" fill="#FFFDF7" stroke="#5C3A21" stroke-width="0.22"/>',
+      '<rect x="32.15" y="19.3" width="3.7" height="3.15" fill="#B8601E" opacity="0.75"/>',
+      '<rect x="33" y="19.7" width="1.4" height="1.4" fill="#F5EFE2" stroke="#A5A5A5" stroke-width="0.08" opacity="0.85"/>',
+      '<rect x="33" y="19.7" width="0.3" height="1.4" fill="#FFFDF7" opacity="0.9"/>',
+      '<rect x="32" y="18.4" width="4" height="0.35" fill="#5C3A21" opacity="0.35"/>',
+      asterisk(34, 17.5, 0.55, "#D97729"),
+    ].join("");
+  }
+
+  // The Sonnet — coupe glass (elegant middle)
+  function handSonnet() {
+    return [
+      '<path d="M 31.5 17.8 Q 31.5 20.1 34 20.1 Q 36.5 20.1 36.5 17.8 Z" fill="#FFFDF7" stroke="#A62626" stroke-width="0.22" stroke-linejoin="round"/>',
+      '<path d="M 32.1 17.95 Q 32.1 19.85 34 19.85 Q 35.9 19.85 35.9 17.95 Z" fill="#D97729" opacity="0.45"/>',
+      asterisk(34, 18.5, 0.45, "#F2C94C"),
+      '<line x1="34" y1="20.1" x2="34" y2="22.2" stroke="#A62626" stroke-width="0.22" stroke-linecap="round"/>',
+      '<ellipse cx="34" cy="22.3" rx="1.2" ry="0.25" stroke="#A62626" stroke-width="0.2" fill="none"/>',
+    ].join("");
+  }
+
+  // The Haiku — small digestif / shot glass (the minimal one)
+  function handHaiku() {
+    return [
+      '<rect x="33" y="18.8" width="2" height="2.3" rx="0.15" fill="#FFFDF7" stroke="#5C3A21" stroke-width="0.2"/>',
+      '<rect x="33.15" y="19.2" width="1.7" height="1.85" fill="#E8D5B5" opacity="0.65"/>',
+      '<rect x="33" y="18.8" width="2" height="0.25" fill="#5C3A21" opacity="0.3"/>',
+      asterisk(34, 18, 0.4, "#D97729"),
+      '<rect x="32.7" y="21.05" width="2.6" height="0.3" rx="0.05" fill="#5C3A21" opacity="0.3"/>',
+    ].join("");
+  }
+
+  function handClaudeccino() {
+    return [
+      '<path d="M 32.5 14.8 Q 32 15.5 32.5 16.3" stroke="#8B7E6F" stroke-width="0.18" fill="none" opacity="0.55" stroke-linecap="round"/>',
+      '<path d="M 34 14.5 Q 33.5 15.2 34 16" stroke="#8B7E6F" stroke-width="0.18" fill="none" opacity="0.55" stroke-linecap="round"/>',
+      '<path d="M 35.5 14.8 Q 35 15.5 35.5 16.3" stroke="#8B7E6F" stroke-width="0.18" fill="none" opacity="0.55" stroke-linecap="round"/>',
+      '<ellipse cx="34" cy="17.2" rx="2.2" ry="0.5" fill="#5C3A21"/>',
+      asterisk(34, 17.2, 0.5, "#E8D5B5"),
+      '<path d="M 31.8 17.2 L 32.3 21.5 Q 32.4 22.2 33 22.2 L 35 22.2 Q 35.6 22.2 35.7 21.5 L 36.2 17.2 Z" fill="#FFFDF7" stroke="#7A4E2B" stroke-width="0.2" stroke-linejoin="round"/>',
+      '<path d="M 36.2 18.3 Q 37.3 18.7 37.3 19.8 Q 37.3 20.9 36.2 21.2" stroke="#7A4E2B" stroke-width="0.22" fill="none"/>',
+    ].join("");
+  }
+
+  function handWater() {
+    return [
+      '<rect x="33" y="16" width="2.6" height="1.2" rx="0.3" fill="#A87D3A"/>',
+      '<rect x="32.8" y="17.2" width="3" height="5" rx="0.5" fill="#E8F4F7" stroke="#7A9AA8" stroke-width="0.15"/>',
+      '<rect x="32.8" y="19" width="3" height="3.2" rx="0.3" fill="#AED3DC" opacity="0.6"/>',
+      '<rect x="33.1" y="19" width="2.4" height="0.4" fill="#7A9AA8" opacity="0.6"/>',
+      asterisk(34.3, 21, 0.45, "#D97740"),
+    ].join("");
+  }
+
+  function handClaudeade() {
+    return [
+      '<line x1="35.5" y1="15" x2="34.3" y2="18" stroke="#D97740" stroke-width="0.28" stroke-linecap="round"/>',
+      asterisk(33.2, 16.5, 0.8, "#F2C94C"),
+      '<path d="M 32 17.3 L 32.7 22.2 Q 32.8 22.6 33.2 22.6 L 34.8 22.6 Q 35.2 22.6 35.3 22.2 L 36 17.3 Z" fill="#FFFDF7" stroke="#C9A24C" stroke-width="0.22" stroke-linejoin="round"/>',
+      '<path d="M 32.2 17.5 L 32.8 22 Q 32.85 22.3 33.2 22.3 L 34.8 22.3 Q 35.15 22.3 35.2 22 L 35.8 17.5 Z" fill="#F2C94C" opacity="0.5"/>',
+    ].join("");
+  }
+
+  function handMatcha() {
+    return [
+      '<path d="M 33.5 14.5 Q 33 15.2 33.5 16" stroke="#8B7E6F" stroke-width="0.18" fill="none" opacity="0.5"/>',
+      '<path d="M 34.7 14.5 Q 34.2 15.2 34.7 16" stroke="#8B7E6F" stroke-width="0.18" fill="none" opacity="0.5"/>',
+      '<ellipse cx="34" cy="17.2" rx="2.1" ry="0.45" fill="#7BA05B"/>',
+      asterisk(34, 17.2, 0.45, "#C5D8A6"),
+      '<path d="M 31.9 17.2 Q 32 21.8 34 21.8 Q 36 21.8 36.1 17.2 Z" fill="#FFFDF7" stroke="#7A4E2B" stroke-width="0.2" stroke-linejoin="round"/>',
+    ].join("");
+  }
+
+  function handLaptop2() {
+    return [
+      '<rect x="30.5" y="17.2" width="3.5" height="0.3" fill="#8B5A3C"/>',
+      '<rect x="30.5" y="17.5" width="3.5" height="1.9" fill="#1A1612"/>',
+      asterisk(32.2, 18.45, 0.6, "#D97740"),
+      '<rect x="30.2" y="19.4" width="4.2" height="0.4" fill="#CF9B55"/>',
+      '<rect x="30" y="19.8" width="4.6" height="0.25" fill="#8B5A3C"/>',
+    ].join("");
+  }
+
+  function handNotebook() {
+    return [
+      '<rect x="31.5" y="17" width="4.5" height="5.5" rx="0.25" fill="#C9A24C"/>',
+      '<rect x="31.5" y="17" width="0.4" height="5.5" fill="#7A5F1E"/>',
+      '<rect x="32.2" y="18" width="3.3" height="0.25" fill="#F5F0E6" opacity="0.7"/>',
+      '<rect x="32.2" y="18.8" width="3.3" height="0.25" fill="#F5F0E6" opacity="0.7"/>',
+      '<rect x="32.2" y="19.6" width="2.4" height="0.25" fill="#F5F0E6" opacity="0.7"/>',
+      '<g transform="translate(35.5, 21) rotate(-20)">',
+      '<rect x="-0.2" y="-1.4" width="0.4" height="2.8" fill="#A62626"/>',
+      '<polygon points="-0.2,1.4 0.2,1.4 0,1.8" fill="#1A1612"/>',
+      '</g>',
+    ].join("");
+  }
+
+  function handMic() {
+    return [
+      '<rect x="33" y="15.5" width="2" height="3" rx="0.9" fill="#1A1612"/>',
+      '<rect x="33.3" y="15.9" width="1.4" height="2.2" rx="0.5" fill="#C9A24C" opacity="0.7"/>',
+      '<g stroke="#8B6914" stroke-width="0.12">',
+      '<line x1="33.5" y1="16.3" x2="34.5" y2="16.3"/>',
+      '<line x1="33.5" y1="16.7" x2="34.5" y2="16.7"/>',
+      '<line x1="33.5" y1="17.1" x2="34.5" y2="17.1"/>',
+      '</g>',
+      '<rect x="33.85" y="18.5" width="0.3" height="3" fill="#1A1612"/>',
+      '<rect x="32" y="21.4" width="4" height="0.4" rx="0.1" fill="#1A1612"/>',
+    ].join("");
+  }
+
+  function handPhone() {
+    return [
+      '<rect x="32.5" y="16.8" width="3" height="5.4" rx="0.5" fill="#1A1612"/>',
+      '<rect x="32.9" y="17.5" width="2.2" height="3.8" rx="0.2" fill="#4A403A"/>',
+      asterisk(34, 19.4, 0.7, "#D97740"),
+      '<circle cx="34" cy="21.7" r="0.22" fill="#4A403A"/>',
+    ].join("");
+  }
+
+  function handPlant() {
+    return [
+      '<ellipse cx="33" cy="16" rx="0.7" ry="1.2" fill="#4A8A5C" transform="rotate(-20 33 16)"/>',
+      '<ellipse cx="34.5" cy="15.5" rx="0.6" ry="1.1" fill="#6BA17A" transform="rotate(15 34.5 15.5)"/>',
+      '<ellipse cx="35.3" cy="16.4" rx="0.7" ry="1.3" fill="#4A8A5C" transform="rotate(30 35.3 16.4)"/>',
+      '<ellipse cx="34" cy="15" rx="0.55" ry="1" fill="#6BA17A"/>',
+      '<rect x="33.9" y="16.5" width="0.2" height="1.5" fill="#3A6A47"/>',
+      '<polygon points="32.5,18 35.5,18 35,22 33,22" fill="#A62626" stroke="#7A1C1C" stroke-width="0.15" stroke-linejoin="round"/>',
+      '<rect x="32.5" y="17.7" width="3" height="0.5" fill="#C93838"/>',
+    ].join("");
+  }
+
+  function handDuck() {
+    return [
+      '<ellipse cx="34" cy="20" rx="2" ry="1.4" fill="#F2C94C"/>',
+      '<circle cx="35.2" cy="18.5" r="1.1" fill="#F2C94C"/>',
+      '<polygon points="36.1,18.7 37,19 36.1,19.3" fill="#D97740"/>',
+      '<circle cx="35.4" cy="18.2" r="0.2" fill="#1A1612"/>',
+      '<ellipse cx="33.5" cy="19.9" rx="0.8" ry="0.45" fill="#E0AC2F"/>',
+    ].join("");
+  }
+
+  function handHeadphonesH() {
+    return [
+      '<path d="M 32.5 18 Q 34 15.3 35.5 18" stroke="#1A1612" stroke-width="0.4" fill="none"/>',
+      '<rect x="31.7" y="18" width="1.6" height="2.4" rx="0.4" fill="#1A1612"/>',
+      '<rect x="34.7" y="18" width="1.6" height="2.4" rx="0.4" fill="#1A1612"/>',
+      '<rect x="32.1" y="18.5" width="0.8" height="1.4" fill="#D97740"/>',
+      '<rect x="35.1" y="18.5" width="0.8" height="1.4" fill="#D97740"/>',
+    ].join("");
+  }
+
+  function handSVG() {
+    const map = {
+      claudetini: handClaudetini,
+      opus: handOpus, sonnet: handSonnet, haiku: handHaiku,
+      claudeccino: handClaudeccino, claudeade: handClaudeade, matcha: handMatcha, water: handWater,
+      laptop2: handLaptop2, notebook: handNotebook, mic: handMic, phone: handPhone,
+      plant: handPlant, duck: handDuck,
+      empty: () => "",
+    };
+    const fn = map[state.hand] || (() => "");
+    return fn();
+  }
+
+  function characterGroup() {
+    return '<g transform="translate(0, 2)">' + hatSVG() + headBodySVG() + leftHandLaptop() + handSVG() + '</g>';
+  }
+
+  function xmlEscape(s) {
+    return String(s || "").replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+  }
+
+  function cardSVG() {
+    const role = ROLE_META[state.role] || ROLE_META.Mentor;
+    const accent = role.accent;
+    const personaText = xmlEscape(String(state.persona || "").toUpperCase());
+    const nameText = xmlEscape(state.name || "");
+    const tagText = xmlEscape(state.tagline || "");
+    const roleText = xmlEscape(role.label.toUpperCase());
+    const personaLen = String(state.persona || "").length;
+    const personaFont = personaLen > 18 ? 2.6 : personaLen > 14 ? 2.95 : 3.2;
+    const lineHalfW = Math.min(14, Math.max(5, personaLen * 0.55));
+
+    return [
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid meet">',
+      '<rect width="44" height="44" fill="#F5F0E6"/>',
+      '<rect x="1.5" y="1.5" width="41" height="41" fill="none" stroke="'+accent+'" stroke-width="0.2" opacity="0.5"/>',
+      '<g stroke="'+accent+'" stroke-width="0.2" fill="none">',
+      '<path d="M 3 5 L 3 3 L 5 3"/><path d="M 39 3 L 41 3 L 41 5"/>',
+      '<path d="M 3 39 L 3 41 L 5 41"/><path d="M 39 41 L 41 41 L 41 39"/>',
+      '</g>',
+      characterGroup(),
+      '<text x="22" y="31" text-anchor="middle" font-family="Instrument Serif, serif" font-size="'+personaFont+'" fill="'+accent+'" font-style="italic">'+personaText+'</text>',
+      '<line x1="'+(22 - lineHalfW)+'" y1="32.2" x2="'+(22 + lineHalfW)+'" y2="32.2" stroke="'+accent+'" stroke-width="0.12"/>',
+      '<text x="22" y="35" text-anchor="middle" font-family="Instrument Serif, serif" font-size="2" fill="#1A1612">'+nameText+'</text>',
+      '<text x="22" y="37.3" text-anchor="middle" font-family="Fraunces, serif" font-size="1.3" fill="#4A403A" font-style="italic">'+tagText+'</text>',
+      '<g transform="translate(22, 40)">',
+      '<rect x="-4" y="-1.2" width="8" height="2.4" rx="1.2" fill="'+accent+'"/>',
+      '<text x="0" y="0.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="1.1" fill="#FFFDF7" letter-spacing="0.3">'+roleText+'</text>',
+      '</g>',
+      '</svg>',
+    ].join("");
+  }
+
+  function characterOnlySVG() {
+    return [
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 4 35 23" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid meet">',
+      characterGroup(),
+      '</svg>',
+    ].join("");
+  }
+
+  // ----- safe DOM insertion via DOMParser -----
+  function svgStringToNode(str) {
+    const doc = new DOMParser().parseFromString(str, "image/svg+xml");
+    const err = doc.querySelector("parsererror");
+    if (err) { console.warn("SVG parse error", err.textContent); return null; }
+    const node = doc.documentElement;
+    return document.importNode(node, true);
+  }
+
+  const frame = document.getElementById("card-frame");
+  function render() {
+    const node = svgStringToNode(cardSVG());
+    if (node) frame.replaceChildren(node);
+  }
+
+  // ----- form wiring -----
+  function setActive(key, value) {
+    const group = document.querySelectorAll('.pick[data-key="'+key+'"]');
+    group.forEach(el => el.classList.toggle("active", el.dataset.value === value));
+  }
+
+  document.getElementById("in-persona").addEventListener("input", (e) => { state.persona = e.target.value; render(); });
+  document.getElementById("in-name").addEventListener("input", (e) => { state.name = e.target.value; render(); });
+  document.getElementById("in-tagline").addEventListener("input", (e) => { state.tagline = e.target.value; render(); });
+
+  document.getElementById("controls").addEventListener("click", (e) => {
+    const pick = e.target.closest(".pick");
+    if (!pick) return;
+    const key = pick.dataset.key;
+    const value = pick.dataset.value;
+    if (!key) return;
+    state[key] = value;
+    setActive(key, value);
+    render();
+  });
+
+  // facial features now live in the picker-row pattern above — no separate toggle needed
+
+  // ----- downloads (SVG string -> blob URL -> image -> canvas -> PNG blob) -----
+  function filenameFor(kind) {
+    const slug = String(state.persona || "identity").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    return "opus47-" + kind + "-" + (slug || "identity") + ".png";
+  }
+
+  function downloadAsPNG(svgStr, filename, width, height, bgFill) {
+    const blob = new Blob([svgStr], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(width);
+      canvas.height = Math.round(height);
+      const ctx = canvas.getContext("2d");
+      if (bgFill) { ctx.fillStyle = bgFill; ctx.fillRect(0, 0, canvas.width, canvas.height); }
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(url);
+      canvas.toBlob((b) => {
+        const a = document.createElement("a");
+        a.download = filename;
+        a.href = URL.createObjectURL(b);
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      }, "image/png");
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      alert("Export failed. Right-click the preview and save instead.");
+    };
+    img.src = url;
+  }
+
+  document.getElementById("btn-card").addEventListener("click", () => {
+    downloadAsPNG(cardSVG(), filenameFor("card"), 1080, 1080, "#F5F0E6");
+  });
+  document.getElementById("btn-char").addEventListener("click", () => {
+    // viewBox "2 4 35 23" — maintain aspect ratio for the transparent PNG
+    const h = Math.round(1024 * (23/35));
+    downloadAsPNG(characterOnlySVG(), filenameFor("character"), 1024, h, null);
+  });
+
+  // ----- init -----
+  (async () => {
+    try {
+      await document.fonts.ready;
+    } catch (e) { /* font load is best-effort */ }
+    render();
+  })();
+
+})();
+</script>
+</body>
+</html>
